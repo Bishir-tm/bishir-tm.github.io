@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fix My MERN App — Codeket</title>
+    <style>
+      body {
+        font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+        margin: 0;
+        background: #f7fafc;
+        color: #0a182e;
+      }
+      .container {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 24px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        color: #1e2a38;
+      }
+      p.lead {
+        margin: 0 0 16px;
+        color: #334155;
+      }
+      .offer {
+        background: #eef2ff;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 12px 0;
+      }
+      label {
+        display: block;
+        margin-top: 8px;
+        font-weight: 600;
+        color: #0a182e;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        border-radius: 8px;
+        border: 1px solid #e6eaf0;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 10px;
+        background: #007aff;
+        color: #fff;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        margin-top: 12px;
+      }
+      .muted {
+        color: #64748b;
+        font-size: 13px;
+      }
+      .example {
+        background: #fff3cd;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 12px;
+        border: 1px solid #ffeeba;
+      }
+      footer {
+        margin-top: 18px;
+        color: #64748b;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fast MERN fixes & small features — personal help</h1>
+      <p class="lead">
+        I fix urgent bugs and deliver small features for MERN apps. Send a repo
+        link or a screenshot/error and I’ll reproduce and fix it. Clear, human,
+        and practical.
+      </p>
+
+      <div class="offer">
+        <strong>Quick offers</strong>
+        <ul>
+          <li>Quick bug fix — <strong>$25</strong> (single issue)</li>
+          <li>Small feature / multi-file fix — <strong>$80</strong></li>
+          <li>Custom quote for larger work</li>
+        </ul>
+        <p class="muted">
+          50% upfront. I accept Payoneer, PayPal, USDT (TRC20).
+        </p>
+      </div>
+
+      <label for="what"
+        >Tell me the problem (paste repo link, error, screenshot):</label
+      >
+      <textarea
+        id="what"
+        rows="4"
+        placeholder="e.g., https://github.com/.. + error stack trace"
+      ></textarea>
+
+      <label for="contact">Your contact (WhatsApp number or email):</label>
+      <input id="contact" placeholder="+234801... or your email" />
+
+      <label for="payment">Preferred payment method</label>
+      <select id="payment">
+        <option>Payoneer</option>
+        <option>PayPal</option>
+        <option>USDT (TRC20)</option>
+      </select>
+
+      <button class="btn" onclick="submitForm()">Request fix</button>
+
+      <div id="response" style="margin-top: 12px"></div>
+
+      <p class="muted example">
+        Example message you can paste: <br /><code
+          >Repo: https://github.com/you/repo | Error: TypeError in app.js line
+          45 | Node v18 | My WhatsApp +234801...</code
+        >
+      </p>
+
+      <footer>
+        Built by Codeket — personal dev help. I reply personally to every
+        request.
+      </footer>
+    </div>
+
+    <script>
+      function submitForm() {
+        const what = document.getElementById("what").value.trim();
+        const contact = document.getElementById("contact").value.trim();
+        const payment = document.getElementById("payment").value;
+        if (!what || !contact) {
+          alert("Paste the repo/error and contact.");
+          return;
+        }
+        const body = `Problem:${what}\nContact:${contact}\nPayment:${payment}`;
+        // Replace with your actual endpoint (mail, webhook). For now: shows text to copy.
+        document.getElementById("response").innerText =
+          "Copy this and send to WhatsApp / DM: " + body;
+        alert(
+          "Request prepared — copy the message below and DM it to people or paste into your group chats."
+        );
+      }
+    </script>
+  </body>
+</html>

@@ -1,157 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Fix My MERN App — Codeket</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Software Catalyst - OS Inspired Solutions</title>
+    <!-- Load Inter font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom configuration for Tailwind colors and font -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              "bg-dark": "#0D0D0F", // Very dark grey, almost black
+              "bg-light": "#F8F8F8", // Off-white
+              "primary-text": "#E0E0E0", // Light grey for main text
+              "secondary-text": "#A0A0A0", // Muted grey for descriptions
+              "accent-blue": "#007AFF", // Standard Apple-like blue
+              "accent-gradient-start": "#00C6FF", // Lighter blue for gradient
+              "accent-gradient-end": "#0072FF", // Deeper blue for gradient
+              "card-bg": "rgba(255, 255, 255, 0.03)", // Subtle transparent white for cards
+              "border-light": "rgba(255, 255, 255, 0.08)", // Light border for card
+            },
+          },
+        },
+      };
+    </script>
     <style>
       body {
-        font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
-        margin: 0;
-        background: #f7fafc;
-        color: #0a182e;
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0d0d0f 0%,
+          #1a1a1e 100%
+        ); /* Subtle dark gradient background */
+        color: var(--primary-text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 1.5rem;
+        overflow-x: hidden; /* Prevent horizontal scroll */
       }
-      .container {
-        max-width: 760px;
-        margin: 40px auto;
-        padding: 24px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+      .os-card {
+        backdrop-filter: blur(20px); /* Frosted glass effect */
+        -webkit-backdrop-filter: blur(20px); /* For Safari */
+        border: 1px solid var(--border-light);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 24px;
-        color: #1e2a38;
+      .os-button {
+        background: linear-gradient(
+          90deg,
+          var(--accent-gradient-start) 0%,
+          var(--accent-gradient-end) 100%
+        );
+        transition: all 0.3s ease;
       }
-      p.lead {
-        margin: 0 0 16px;
-        color: #334155;
+      .os-button:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 118, 255, 0.4);
       }
-      .offer {
-        background: #eef2ff;
-        padding: 12px;
-        border-radius: 8px;
-        margin: 12px 0;
-      }
-      label {
-        display: block;
-        margin-top: 8px;
-        font-weight: 600;
-        color: #0a182e;
-      }
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 6px;
-        border-radius: 8px;
-        border: 1px solid #e6eaf0;
-      }
-      .btn {
-        display: inline-block;
-        padding: 10px 16px;
-        border-radius: 10px;
-        background: #007aff;
-        color: #fff;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        margin-top: 12px;
-      }
-      .muted {
-        color: #64748b;
-        font-size: 13px;
-      }
-      .example {
-        background: #fff3cd;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 12px;
-        border: 1px solid #ffeeba;
-      }
-      footer {
-        margin-top: 18px;
-        color: #64748b;
-        font-size: 13px;
+      .icon-circle {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
       }
     </style>
   </head>
-  <body>
-    <div class="container">
-      <h1>Fast MERN fixes & small features — personal help</h1>
-      <p class="lead">
-        I fix urgent bugs and deliver small features for MERN apps. Send a repo
-        link or a screenshot/error and I’ll reproduce and fix it. Clear, human,
-        and practical.
-      </p>
-
-      <div class="offer">
-        <strong>Quick offers</strong>
-        <ul>
-          <li>Quick bug fix — <strong>$25</strong> (single issue)</li>
-          <li>Small feature / multi-file fix — <strong>$80</strong></li>
-          <li>Custom quote for larger work</li>
-        </ul>
-        <p class="muted">
-          50% upfront. I accept Payoneer, PayPal, USDT (TRC20).
-        </p>
-      </div>
-
-      <label for="what"
-        >Tell me the problem (paste repo link, error, screenshot):</label
+  <body class="selection:bg-accent-blue selection:text-white">
+    <div
+      class="w-full max-w-5xl rounded-3xl p-6 md:p-12 os-card text-primary-text mx-auto"
+    >
+      <!-- Header - Brand and Personal Photo -->
+      <header
+        class="flex flex-col md:flex-row items-center justify-between border-b border-border-light"
       >
-      <textarea
-        id="what"
-        rows="4"
-        placeholder="e.g., https://github.com/.. + error stack trace"
-      ></textarea>
-
-      <label for="contact">Your contact (WhatsApp number or email):</label>
-      <input id="contact" placeholder="+234801... or your email" />
-
-      <label for="payment">Preferred payment method</label>
-      <select id="payment">
-        <option>Payoneer</option>
-        <option>PayPal</option>
-        <option>USDT (TRC20)</option>
-      </select>
-
-      <button class="btn" onclick="submitForm()">Request fix</button>
-
-      <div id="response" style="margin-top: 12px"></div>
-
-      <p class="muted example">
-        Example message you can paste: <br /><code
-          >Repo: https://github.com/you/repo | Error: TypeError in app.js line
-          45 | Node v18 | My WhatsApp +234801...</code
+        <div class="text-center md:text-left mb-6 md:mb-0">
+          <h1
+            class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-2"
+          >
+            <span class="text-accent-blue">The</span> Software Catalyst
+          </h1>
+          <p class="text-xl font-medium text-secondary-text">
+            Your Personal & Swift Coding Solutions Partner.
+          </p>
+        </div>
+        <!-- Your Image Placeholder -->
+        <img
+          src="/assets/images/BishirT.png"
+          alt="BIshir TM Profile Picture"
+          class="w-full h-full object-cover"
+        />
+        <!-- <div
+          class="flex-shrink-0 relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-accent-blue shadow-lg bg-gray-700"
         >
-      </p>
+          <img
+            src="/assets/images/BishirT.png"
+            alt="BIshir TM Profile Picture"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-10"
+          ></div>
+        </div> -->
+      </header>
 
-      <footer>
-        Built by Codeket — personal dev help. I reply personally to every
-        request.
+      <!-- Main Value Proposition & Sales Funnel Intro -->
+      <section class="my-12">
+        <p
+          class="text-xl sm:text-2xl leading-relaxed font-light text-center md:text-left text-secondary-text max-w-3xl mx-auto md:mx-0"
+        >
+          Facing a coding roadblock? I provide **direct, fast, and personalized
+          solutions** for individuals, students, and businesses. Cut through the
+          noise and get to the answer.
+        </p>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="p-6 os-card rounded-2xl flex flex-col items-center">
+            <div
+              class="w-16 h-16 rounded-full icon-circle flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-accent-blue"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">
+              Code Debugging
+            </h3>
+            <p class="text-sm text-secondary-text">
+              Pinpoint and fix issues rapidly.
+            </p>
+          </div>
+          <div class="p-6 os-card rounded-2xl flex flex-col items-center">
+            <div
+              class="w-16 h-16 rounded-full icon-circle flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-accent-blue"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-1.75-3M3 13h18M4 17h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v11a1 1 0 001 1zm8-12v4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">
+              Project Guidance
+            </h3>
+            <p class="text-sm text-secondary-text">
+              Architect, refactor, or optimize.
+            </p>
+          </div>
+          <div class="p-6 os-card rounded-2xl flex flex-col items-center">
+            <div
+              class="w-16 h-16 rounded-full icon-circle flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-accent-blue"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">
+              Concept Clarification
+            </h3>
+            <p class="text-sm text-secondary-text">
+              Understand complex topics simply.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section - The Funnel Start -->
+      <section class="text-center pt-8 pb-10 border-t border-border-light">
+        <h2 class="text-3xl font-bold text-white mb-4">
+          Don't get stuck. Get Solved.
+        </h2>
+        <p class="text-lg text-secondary-text mb-8 max-w-2xl mx-auto">
+          Time is your most valuable resource. Let's get your project back on
+          track, personally and without delay.
+        </p>
+        <a
+          href="mailto:your.email@example.com?subject=Inquiry from The Software Catalyst Website"
+          class="os-button inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-bold rounded-full text-white shadow-lg transition-all duration-300"
+        >
+          Start a Live Session &rarr;
+        </a>
+        <p class="mt-6 text-sm text-secondary-text">
+          Typical response time:
+          <span class="font-medium text-white">within minutes.</span>
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="mt-12 pt-6 border-t border-border-light text-center text-sm text-secondary-text"
+      >
+        <p>
+          &copy; 2024 The Software Catalyst. All rights reserved. |
+          <a
+            href="mailto:your.email@example.com"
+            class="hover:text-white underline"
+            >contact@example.com</a
+          >
+        </p>
       </footer>
     </div>
-
-    <script>
-      function submitForm() {
-        const what = document.getElementById("what").value.trim();
-        const contact = document.getElementById("contact").value.trim();
-        const payment = document.getElementById("payment").value;
-        if (!what || !contact) {
-          alert("Paste the repo/error and contact !");
-          return;
-        }
-        const body = `Problem:${what}\nContact:${contact}\nPayment:${payment}`;
-        // Replace with your actual endpoint (mail, webhook). For now: shows text to copy.
-        document.getElementById("response").innerText =
-          "Copy this and send to WhatsApp / DM: " + body;
-        alert(
-          "Request prepared — copy the message below and DM it to people or paste into your group chats."
-        );
-      }
-    </script>
   </body>
 </html>

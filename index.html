@@ -3,56 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Software Catalyst - OS Inspired Solutions</title>
-    <!-- Load Inter font from Google Fonts -->
+    <title>Get Coding Help — Fast, Personal, and Human</title>
+
+    <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Load Tailwind CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Required for the WhatsApp icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom configuration for Tailwind colors and font -->
+
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ["Inter", "sans-serif"],
+              sans: ["Inter", "Google Sans Code", "sans-serif"],
             },
             colors: {
-              "bg-dark": "#0D0D0F", // Very dark grey, almost black
-              "bg-light": "#F8F8F8", // Off-white
-              "primary-text": "#E0E0E0", // Light grey for main text
-              "secondary-text": "#A0A0A0", // Muted grey for descriptions
-              "accent-blue": "#007AFF", // Standard Apple-like blue
-              "accent-gradient-start": "#00C6FF", // Lighter blue for gradient
-              "accent-gradient-end": "#0072FF", // Deeper blue for gradient
-              "card-bg": "rgba(255, 255, 255, 0.03)", // Subtle transparent white for cards
-              "border-light": "rgba(255, 255, 255, 0.08)", // Light border for card
+              "bg-dark": "#0D0D0F",
+              "bg-light": "#F8F8F8",
+              "primary-text": "#E0E0E0",
+              "secondary-text": "#A0A0A0",
+              "accent-blue": "#007AFF",
+              "accent-gradient-start": "#00C6FF",
+              "accent-gradient-end": "#0072FF",
+              "card-bg": "rgba(255, 255, 255, 0.03)",
+              "border-light": "rgba(255, 255, 255, 0.08)",
             },
           },
         },
       };
     </script>
+
     <style>
       body {
-        font-family: "Inter", sans-serif;
-        background: linear-gradient(
-          135deg,
-          #0d0d0f 0%,
-          #1a1a1e 100%
-        ); /* Subtle dark gradient background */
+        font-family: "Inter", "Google Sans Code", sans-serif;
+        background: linear-gradient(135deg, #0d0d0f 0%, #1a1a1e 100%);
         color: var(--primary-text);
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100vh;
         padding: 1.5rem;
-        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-x: hidden;
       }
       .os-card {
-        backdrop-filter: blur(20px); /* Frosted glass effect */
-        -webkit-backdrop-filter: blur(20px); /* For Safari */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 1px solid var(--border-light);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
@@ -72,55 +80,135 @@
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.15);
       }
+      /* WhatsApp Button Styles */
+      .whatsapp-float {
+        max-width: fit-content;
+        padding: 12px 24px;
+        border-radius: 50px;
+        background-color: #25d366; /* WhatsApp Green */
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        cursor: pointer;
+        /* Shadow and Animation */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #1da851;
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .whatsapp-float i {
+        font-size: 24px;
+        margin-right: 8px; /* Space between icon and text */
+      }
     </style>
   </head>
+
   <body class="selection:bg-accent-blue selection:text-white">
     <div
       class="w-full max-w-5xl rounded-3xl p-6 md:p-12 os-card text-primary-text mx-auto"
     >
-      <!-- Header - Brand and Personal Photo -->
+      <!-- Header Section -->
       <header
         class="flex flex-col md:flex-row items-center justify-between border-b border-border-light"
       >
-        <div class="text-center md:text-left mb-6 md:mb-0">
+        <!-- Mobile Header -->
+        <div
+          class="md:hidden flex flex-col mb-6 justify-center w-full items-center"
+        >
+          <div
+            class="flex-shrink-0 relative w-64 h-64 rounded-full overflow-hidden border-4 border-accent-blue shadow-xl bg-gray-700 mb-4"
+          >
+            <img
+              src="/assets/images/BishirT.png"
+              alt="Bishir TM"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3
+            class="font- text-white ms-2 text-3xl"
+            style="font-family: 'Google Sans Code'"
+          >
+            Bishir_TM
+          </h3>
+          <h1
+            class="text-5xl font-extrabold tracking-tight text-white text-center"
+          >
+            <span class="text-accent-blue">Code Help,</span> Human Style.
+          </h1>
+          <p class="mt-2 text-xl font-medium text-secondary-text text-center">
+            Fast, personal, and hands-on help for real coding problems.
+          </p>
+          <div class="my-3 flex justify-start">
+            <a
+              href="https://wa.me/+2349068149540?text=I%20saw%20your%20website%20and%20had%20a%20question."
+              class="whatsapp-float"
+              target="_blank"
+              aria-label="Chat on WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+              <span class="chat-text">Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Desktop Header -->
+        <div class="hidden md:flex flex-col items-start mb-0">
+          <h3
+            class="font- text-white ms-2 text-3xl"
+            style="font-family: 'Google Sans Code'"
+          >
+            Bishir_TM
+          </h3>
           <h1
             class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-2"
           >
-            <span class="text-accent-blue">The</span> Software Catalyst
+            <span class="text-accent-blue">Code Help,</span> Human Style.
           </h1>
           <p class="text-xl font-medium text-secondary-text">
-            Your Personal & Swift Coding Solutions Partner.
+            Fast, personal, and hands-on help for real coding problems.
           </p>
+          <div class="my-6 flex justify-center md:justify-start">
+            <a
+              href="https://wa.me/+2349068149540?text=I%20saw%20your%20website%20and%20had%20a%20question."
+              class="whatsapp-float"
+              target="_blank"
+              aria-label="Chat on WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+              <span class="chat-text">Chat on WhatsApp</span>
+            </a>
+          </div>
         </div>
-        <!-- Your Image Placeholder -->
+
+        <!-- Profile Image for Desktop -->
         <img
           src="/assets/images/BishirT.png"
-          alt="BIshir TM Profile Picture"
-          class="w-full h-full object-cover"
+          alt="Profile"
+          class="hidden md:block object-cover shadow-lg w-66 h-66"
         />
-        <!-- <div
-          class="flex-shrink-0 relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-accent-blue shadow-lg bg-gray-700"
-        >
-          <img
-            src="/assets/images/BishirT.png"
-            alt="BIshir TM Profile Picture"
-            class="w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-10"
-          ></div>
-        </div> -->
       </header>
 
-      <!-- Main Value Proposition & Sales Funnel Intro -->
-      <section class="my-12">
+      <!-- Main Section -->
+      <section class="my-12 text-center md:text-left">
+        <p class="text-xl mb-4">Stuck on a bug or broken app?</p>
         <p
-          class="text-xl sm:text-2xl leading-relaxed font-light text-center md:text-left text-secondary-text max-w-3xl mx-auto md:mx-0"
+          class="text-xl sm:text-2xl leading-relaxed font-light text-secondary-text max-w-3xl mx-auto md:mx-0"
         >
-          Facing a coding roadblock? I provide **direct, fast, and personalized
-          solutions** for individuals, students, and businesses. Cut through the
-          noise and get to the answer.
+          I help
+          <strong class="font-semibold text-white"
+            >students, founders, and developers</strong
+          >
+          debug, fix, and understand their code — live and one-on-one. No
+          waiting, no copy-paste answers.
         </p>
+
+        <!-- Services -->
         <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div class="p-6 os-card rounded-2xl flex flex-col items-center">
             <div
@@ -131,7 +219,6 @@
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   stroke-linecap="round"
@@ -141,13 +228,13 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-white mb-2">
-              Code Debugging
-            </h3>
+            <h3 class="text-lg font-semibold text-white mb-2">Debug & Fix</h3>
             <p class="text-sm text-secondary-text">
-              Pinpoint and fix issues rapidly.
+              Get to the root cause fast. I’ll diagnose and fix errors live —
+              React, Node, Vibe, or AI-generated code.
             </p>
           </div>
+
           <div class="p-6 os-card rounded-2xl flex flex-col items-center">
             <div
               class="w-16 h-16 rounded-full icon-circle flex items-center justify-center mb-4"
@@ -157,7 +244,6 @@
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   stroke-linecap="round"
@@ -171,9 +257,11 @@
               Project Guidance
             </h3>
             <p class="text-sm text-secondary-text">
-              Architect, refactor, or optimize.
+              Need clarity or structure? I’ll review your architecture or guide
+              you through the next step.
             </p>
           </div>
+
           <div class="p-6 os-card rounded-2xl flex flex-col items-center">
             <div
               class="w-16 h-16 rounded-full icon-circle flex items-center justify-center mb-4"
@@ -183,7 +271,6 @@
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   stroke-linecap="round"
@@ -197,31 +284,81 @@
               Concept Clarification
             </h3>
             <p class="text-sm text-secondary-text">
-              Understand complex topics simply.
+              Confused by a concept? I’ll break it down one-on-one — not just
+              how, but why it works.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Call to Action Section - The Funnel Start -->
+      <!-- Call to Action -->
       <section class="text-center pt-8 pb-10 border-t border-border-light">
         <h2 class="text-3xl font-bold text-white mb-4">
-          Don't get stuck. Get Solved.
+          Don’t stay stuck. Let’s solve it now.
         </h2>
-        <p class="text-lg text-secondary-text mb-8 max-w-2xl mx-auto">
-          Time is your most valuable resource. Let's get your project back on
-          track, personally and without delay.
+        <p class="text-lg text-secondary-text max-w-2xl mx-auto">
+          Send your issue — I’ll respond in minutes. Whether it’s a bug, a
+          failed build, or an unclear concept, we’ll fix it together.
         </p>
-        <a
-          href="mailto:your.email@example.com?subject=Inquiry from The Software Catalyst Website"
-          class="os-button inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-bold rounded-full text-white shadow-lg transition-all duration-300"
-        >
-          Start a Live Session &rarr;
-        </a>
-        <p class="mt-6 text-sm text-secondary-text">
+        <p class="mt-6 text-sm text-secondary-text mb-8">
           Typical response time:
-          <span class="font-medium text-white">within minutes.</span>
+          <span class="font-medium text-white">under 2 minutes.</span>
         </p>
+
+        <!-- Primary CTA -->
+        <div class="flex justify-center">
+          <a
+            href="https://wa.me/+2349068149540?text=I%20saw%20your%20website%20and%20had%20a%20question."
+            class="whatsapp-float"
+            target="_blank"
+            aria-label="Chat on WhatsApp"
+          >
+            <!-- WhatsApp Icon -->
+            <i class="fab fa-whatsapp"></i>
+
+            <!-- Chat Text (Responsive) -->
+            <span class="chat-text">Chat on WhatsApp —> Get Help Fast</span>
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center my-8">
+          <div class="flex-grow border-t border-border-light"></div>
+          <span class="mx-4 text-secondary-text uppercase text-sm font-medium"
+            >or</span
+          >
+          <div class="flex-grow border-t border-border-light"></div>
+        </div>
+
+        <!-- Lead Capture Fallback -->
+        <div class="mt-10 max-w-md mx-auto">
+          <form
+            action="mailto:Bishirtijjani247@gmail.com"
+            method="post"
+            enctype="text/plain"
+            class="flex flex-col gap-4"
+          >
+            <input
+              type="text"
+              name="issue"
+              placeholder="Describe your problem briefly..."
+              class="p-3 rounded-lg bg-card-bg border border-border-light text-white placeholder-secondary-text focus:outline-none focus:ring-2 focus:ring-accent-blue"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email (so I can reply)"
+              class="p-3 rounded-lg bg-card-bg border border-border-light text-white placeholder-secondary-text focus:outline-none focus:ring-2 focus:ring-accent-blue"
+              required
+            />
+            <button
+              type="submit"
+              class="os-button px-8 py-3 rounded-full font-semibold text-white bg-accent-blue text-lg"
+            >
+              Send & Wait for a Reply →
+            </button>
+          </form>
+        </div>
       </section>
 
       <!-- Footer -->
@@ -229,12 +366,13 @@
         class="mt-12 pt-6 border-t border-border-light text-center text-sm text-secondary-text"
       >
         <p>
-          &copy; 2024 The Software Catalyst. All rights reserved. |
+          &copy; 2025 Bishir TM. All rights reserved. |
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:Bishirtijjani247@gmail.com"
             class="hover:text-white underline"
-            >contact@example.com</a
           >
+            Bishirtijjani247@gmail.com
+          </a>
         </p>
       </footer>
     </div>
